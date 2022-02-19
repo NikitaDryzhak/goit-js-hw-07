@@ -36,11 +36,13 @@ function openModalClick(evt) {
     const modal = basicLightbox.create(`<img src="${image}" width="800" height="600">`)
     modal.show()
     
-    document.addEventListener('keydown', modalClose)
+    window.addEventListener('keydown', modalClose)
 function modalClose(e) {
-    if (e.key === 'Escape') {
+    if (e.code === 'Escape') {
         modal.close()
+        window.removeEventListener('keydown', modalClose)
     }
+    
 }
 }
 
